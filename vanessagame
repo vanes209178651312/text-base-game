@@ -1,0 +1,214 @@
+#include<iostream>
+using namespace std;
+
+//global variables
+string inventory[10];
+
+//function declarations
+
+
+	int main() {
+	srand(time(NULL));
+	int room = 1;
+	string input;
+	bool gameover = false;
+
+
+	cout << "You wake up to find yourself at cec . Can you escape? Good Luck!" << endl;
+	cout << "" << endl;
+	do {
+		//stff here happens every game loop
+		cout << "press i for inventory" << endl;
+
+		switch (room) {
+		case 1:
+			cout << "You're in Ms Montoya's room you can hear all  the fakebabys crying  in ROOM   1" << endl;
+
+
+
+			cout << "you can go east (e)" << endl;
+			cin >> input;
+			if (input == "e" || input == "east")
+				room = 2;
+			else
+				cout << "not there" << endl;
+			break;
+		case 2:
+
+
+			cout << "You're in dr. Mo's Room you can see all the tress lighing up in colors in ROOM 2" << endl;
+			cout << "you can go east(e) ,west(w)" << endl;
+			cin >> input;
+			if (input == "e" || input == "east")
+				room = 3;
+			else if (input == "w" || input == "south")
+				room = 2;
+			break;
+		case 3:
+			cout << "you're in culinary where Jo, Steven and Trish are cooking it up in the back in ROOM 3. " << endl;
+			cout << "you can go east (e),south(s) west(w) or north(n)" << endl;
+			cin >> input;
+			if ((input == "s" || input == "south")) {
+				if (inventory[1].compare("notebook") !=0 )
+					cout << "door is locked" << endl;
+				else {
+					room = 4;
+					cout << "you unlock the door" << endl;
+				}
+			}
+				if (input == "n" || input == "north")
+					room = 5;
+			if (input == "e" || input == "east")
+				room = 6;
+
+			
+			break;
+		case 4:
+			cout << "You're in  criminal justice where they are discovering a dead body.Room  4" << endl;
+			cout << "you can go South (s)" << endl;
+			cin >> input;
+			if (input == "s" || input == "SOUTH")
+				room = 7;
+			else
+				cout << "not there" << endl;
+
+			break;
+		case 5:
+			cout << "you're in am empty rooom where you see nothing but a notebook that is gold. Room 5" << endl;
+			cout << "pick up the notebook type'grab'" << endl;
+			cout << "you can go north (n) or south (s)" << endl;
+			cin >> input;
+			if (input == "n" || input == "north")
+				room = 13;
+			else if (input.compare("i") == 0) {
+				cout << "inventory, ";
+				for (int i = 0; i < 10; i++)
+					cout << inventory[i] << endl;
+			}
+			else if (input.compare("grab") == 0)
+				inventory[1] = "notebook";
+			else if (input == "s" || input == "south")
+				room = 3;
+			else
+				cout << "not there" << endl;
+			break;
+
+		case 6:
+			cout << "you're in Film class where they are recording a music video. Room 6  " << endl;
+			cout << "you can go South (s)" << endl;
+			cin >> input;
+			if (input == "s" || input == "south")
+				room = 14;
+			
+			break;
+		case 7:
+			cout << "you're in business where Mr alvares does his business. Room 7" << endl;
+			cout << "this room has a key on the desk type'grab' to get the key" << endl; 
+			cout << "you can go South (s)" << endl;
+			cin >> input;
+			if (input == "s" || input == "south")
+				room = 8;
+			else if (input.compare("i") == 0) {
+				cout << "inventory, ";
+				for (int i = 0; i < 10; i++)
+					cout << inventory[i] << endl;
+			}
+			else if (input.compare("grab") == 0)
+				inventory[1] = "key";
+			else
+				cout << "not there" << endl;
+			break;
+		case 8:
+			cout << "you're in aduio room where you can make beats.In Room 8" << endl;
+			cout << "you can go west (w) or north (n)" << endl;
+			cin >> input;
+			if (input == "w" || input == "west")
+				room = 9;
+			if (input == "n" || input == "north")
+				room = 7;
+			else if (input.compare("i") == 0) {
+				cout << "inventory, ";
+				for (int i = 0; i < 10; i++)
+					cout << inventory[i] << endl;
+			}
+			else
+				cout << "not there" << endl;
+			break;
+
+		case 9:
+			cout << "you're in fitness where students are ten times the size(of strenghth) in room 9" << endl;
+			cout << "you can go west (w) or east(e)" << endl;
+			cin >> input;
+			if (input == "w" || input == "north")
+				room = 10;
+			if (input == "e" || input == "east")
+				room = 8;
+			else if (input.compare("i") == 0) {
+				cout << "inventory, ";
+				for (int i = 0; i < 10; i++)
+					cout << inventory[i] << endl;
+			}
+			else
+				cout << "not there" << endl;
+			break;
+		case 10:
+			cout << "you're in in welding where i went blind. In Room 10" << endl;
+			cout << "this is the choice of your life now you pick out the door that you think will bring you to victory!!!" << endl;
+			cout << "you can go East (e) West (w) South (s) or North (n)  " << endl;
+			cin >> input;
+			if ((input == "s" || input == "south")) {
+				if (inventory[1].compare("key") != 0)
+					cout << "door is locked" << endl;
+				else {
+					room = 11;
+					cout << "you unlock the door" << endl;
+				}
+			}
+			if ((input == "n" || input == "north")) {
+				if (inventory[1].compare("key") != 0)
+					cout << "door is locked" << endl;
+				else {
+					room = 13;
+					cout << "you unlock the door" << endl;
+				}
+			}
+			if ((input == "w" || input == "west")) {                                  
+				if (inventory[1].compare("key") != 0)
+					cout << "door is locked" << endl;
+				else {
+					room = 12;
+					cout << "you unlock the door" << endl;
+		
+				}
+			}
+			else if (input == "e" || input == "east")
+				room = 9;
+			else if (input.compare("i") == 0) {
+				cout << "inventory, ";
+				for (int i = 0; i < 10; i++)
+					cout << inventory[i] << endl;
+			}
+			else
+				cout << "not there" << endl;
+			break;
+		case 11:
+			cout << "you're in medical/nursing where you see the dummys come to live.IN room 11 " << endl;
+			cout << "you died because the dummys where smarter then you though  " << endl;
+			cin >> input;
+			gameover = true;
+			
+		case 12:
+			cout << "you're in EMT where they save your life .IN room 12 " << endl;
+			cout << "you win " << endl;
+			cin >> input;
+			gameover = true;
+		case 13:
+			cout << "you're in architecture where the floor wasnt strong engough to hold you .IN room 13 " << endl;
+			cout << "so you just died " << endl;
+			cin >> input;
+			gameover = true;
+		}
+	} while (input != "q" && gameover == false);
+
+	cout << "game over!" << endl;
+}
